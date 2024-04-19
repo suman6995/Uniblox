@@ -33,7 +33,7 @@ const ApplyCouponButton = styled.button`
   cursor: pointer;
   font-weight: 700;
   border-radius: 2px;
-  margin-top: 10px;
+  margin-top: 10 px;
 `;
 
 const GenerateCouponButton = styled.button`
@@ -118,12 +118,12 @@ const Checkout = ({ checkout, cart }) => {
             </>
           ) : (
             <React.Fragment>
-              {cart.length == 0 ? null : (
+              {cart.length === 0 ? null : (
                 <p>Coupon applied successfully! You get 10% discount.</p>
               )}
             </React.Fragment>
           )}
-          {cart.length == 0 ? null : (
+          {cart.length === 0 ? null : (
             <CheckoutButton onClick={checkout}>
               Checkout ({discountApplied ? "Discounted" : ""} Total: $
               {calculateDiscountedTotal().toFixed(2)})
