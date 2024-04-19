@@ -110,7 +110,7 @@ const Checkout = ({ checkout, cart }) => {
     <CheckoutContainer className="checkout">
       {couponGenerated ? (
         <>
-          {!couponApplied ? (
+          {!couponApplied && cart.length > 0 ? (
             <>
               <CouponInput
                 type="text"
