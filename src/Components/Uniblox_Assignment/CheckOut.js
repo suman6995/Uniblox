@@ -33,7 +33,7 @@ const ApplyCouponButton = styled.button`
   cursor: pointer;
   font-weight: 700;
   border-radius: 2px;
-  margin-top: 10 px;
+  margin-top: 10px;
 `;
 
 const GenerateCouponButton = styled.button`
@@ -98,7 +98,14 @@ const Checkout = ({ checkout, cart }) => {
 
     return total;
   };
-
+  const checkOutFunc = () => {
+    if (!couponApplied) {
+      alert("Please apply the coupon before checkout");
+    }
+    if (couponApplied && discountApplied) {
+      checkout();
+    }
+  };
   return (
     <CheckoutContainer className="checkout">
       {couponGenerated ? (
@@ -124,7 +131,7 @@ const Checkout = ({ checkout, cart }) => {
             </React.Fragment>
           )}
           {cart.length === 0 ? null : (
-            <CheckoutButton onClick={checkout}>
+            <CheckoutButton onClick={checkOutFunc}>
               Checkout ({discountApplied ? "Discounted" : ""} Total: $
               {calculateDiscountedTotal().toFixed(2)})
             </CheckoutButton>
